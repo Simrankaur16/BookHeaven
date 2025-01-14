@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+
+<div class="mt-24 px-4">
+   <div class="my-4 grid grid-cols-1 sm:grid-col-3 md:grid-cols-4 gap-6">
+      @for(book of books; track $index)
+      {
+        <a routerLink="/viewBookDetails/{{book._id}}">
+        <div class="bg-orange-100 rounded p-4 flex flex-col">
+            <div class="bg-orange-50 rounded flex items-center justify-center "  >
+                <img src={{book.url}} class="h-[25vh]" >
+            </div>
+            <h2 class="mt-4 text-xl ">{{book.title}}</h2>
+            <p class="text-zinc-600 text-sm">{{book.author}}</p>
+            <p>Price: ${{book.price}}</p>
+          
+        </div>
+
+        </a>
+     }
+    </div>
+    
+    
+    
+
+</div>
+<router-outlet></router-outlet>

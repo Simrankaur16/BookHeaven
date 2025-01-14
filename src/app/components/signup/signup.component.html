@@ -1,0 +1,88 @@
+<app-navbar></app-navbar>
+
+<div class="h-screen   md:px-12 px-2 py-8 flex items-center justify-center" id="signup">
+    <div class="bg-orange-100 rounded-lg px-8 py-5 w-full md:w-3/6 lg:w-2/6">
+        <p class="text-xl font-black">Sign Up</p>
+        <form (ngSubmit)="onSubmit()">
+        <div class="mt-4">
+            <div >
+                <label for="username">Username</label>
+                <input type="text" class="w-full mt-2 bg-orange-100 p-2 outline-none inputd" 
+                  placeholder="username"
+                  name="username"
+                  required
+                  id="username"
+                  minlength="4"
+                  #username="ngModel"
+                  [(ngModel)]="user.username">
+                  <div class="text-sm" style="color:  rgb(247, 151, 151);" *ngIf="username.invalid && ( username.touched || username.dirty)">
+                    <span *ngIf="username.errors?.['required']">username is Required</span>
+                    <span *ngIf="username.errors?.['minlength']">Minimum 4 Characters needed</span>
+                  </div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <div >
+                <label for="email">Email</label>
+                <input type="email" class="w-full mt-2 bg-orange-100 p-2 outline-none inputd" 
+                  placeholder="email"
+                  name="email"
+                  required
+                  id="email"
+                  #email="ngModel"
+                  [(ngModel)]="user.email"
+                  >
+                  <div class="text-sm" style="color:  rgb(247, 151, 151);" *ngIf="email.invalid && (email.touched || email.dirty)">
+                    <span *ngIf="address.errors?.['required']">Email is Required</span>
+                </div>
+
+            </div>
+        </div>
+        <div class="mt-4">
+            <div >
+                <label for="password">Password</label>
+                <input type="email" class="w-full mt-2 bg-orange-100 p-2 outline-none inputd" 
+                  placeholder="password"
+                  name="password"
+                  required
+                  id="password"
+                  minlength="7"
+                  #password="ngModel"
+                  [(ngModel)]="user.password">
+                <div class="text-sm" style="color:  rgb(247, 151, 151);" *ngIf="password.invalid && ( password.touched || password.dirty)">
+                    <span *ngIf="username.errors?.['required']">Password is Required</span>
+                    <span *ngIf="username.errors?.['minlength']">Password Should be more than 6 Characters</span>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <div >
+                <label for="address">Address</label>
+                <input type="text" class="w-full mt-2 bg-orange-100 p-2 outline-none inputd" 
+                  placeholder="address"
+                  name="address"
+                  required
+                  id="address"
+                  #address="ngModel"
+                  [(ngModel)]="user.address">
+                  <div class="text-sm" style="color:  rgb(247, 151, 151);" *ngIf="password.invalid && ( address.touched || address.dirty)">
+                    <span *ngIf="address.errors?.['required']">Address is Required</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <button class="w-full bg-blue-600 text-white font-semibold py-2 rounded hover:to-slate-600" type="submit">SignUp</button>
+        </div>
+        <p class="flex mt-4 items-center justify-center font-semibold">
+            Or
+        </p>
+        <div class="flex items-center justify-center space-x-1 text-zinc-500">
+            <p class="">Already have an account?</p>
+            <a routerLink="/login" class="underline">login</a>
+        </div>
+        
+        </form>
+
+    </div>
+</div>

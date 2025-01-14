@@ -1,0 +1,17 @@
+
+#das {
+   /* background-image: url("/pin.avif"); */
+   background-size:contain;
+
+    /* Ensures the image covers the entire container */
+  /* background-repeat: no-repeat; Prevents repeating */
+  background-position: center; 
+  height: 100vh; /* Adjust the height */
+  width: 100%;
+}
+
+#dashboard {
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+

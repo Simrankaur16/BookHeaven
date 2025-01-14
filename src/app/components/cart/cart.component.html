@@ -1,0 +1,83 @@
+<app-navbar></app-navbar>
+<div class="h-screen">
+
+
+    <div class="h-[100%] flex  flex-col">
+        @if (user.length === 0) {
+            <div class="h-[100%] flex items-center justify-center flex-col">
+        <div class="text-x lg:text-6xl font-semibold text-zinc-600">
+
+            
+
+
+             <h1 class="text-5xl lg:text-6xl font-semibold text-zinc-400">
+                          Cart is Empty
+            </h1> 
+             <img src="/cartE.png" alt="Cart" class="lg:h-[50vh]">
+            
+             </div>
+        </div>
+
+       }
+       @else {
+    
+        
+        <div class=" pt-20 m-5">
+        <h1 class="text-xl lg:text-6xl font-semibold text-zinc-700 gap-4">
+            Cart </h1> 
+        @for(cart of user; track $index)
+        {
+        
+        
+            
+        
+        <div class="w-full my-3 rounded flex flex-col md:flex-row p-4 justify-between items-center border border-slate-400 bg-slate-100">
+           
+            <img src={{cart.url}} class="h-[20vh] md:h-[10vh] mx-5 object-cover">
+            <div>
+
+                     <h1 class="text-2xl font-semibold text-start mt-2 md:mt-0">{{cart.title}}</h1>
+                <p class="text-normal mt-2 hidden lg:block">{{cart.description.slice(0,65)}}...</p>
+                <p class="text-normal mt-2 hidden md:block lg:hidden">{{cart.description.slice(0,65)}}</p>
+
+            </div>
+
+            <div class="flex mt-4 w-full md:w-auto items-center justify-between ">
+                <h2 class="text-3xl font font-semibold flex pr-8">
+                    ${{cart.price}}
+
+                </h2>
+                <button class="bg-red-200 rounded-full p-2 mt-0 flex gap-0 mr-2  hover:bg-slate-300" (click)="placeOrder(cart._Id)" >
+              
+                    <!-- <img src="remove.svg" class="px-1 "> -->
+                     Place Order
+                </button>                
+                <button class="bg-red-200 rounded-full p-1 mt-0 flex gap-0  hover:bg-slate-300" (click)="removeBook(cart._id)" >
+              
+                    <img src="remove.svg" class="px-1 ">
+                </button>                
+
+            </div>
+         
+            
+        </div>
+
+       
+
+        }
+            
+    </div>
+    }
+
+
+
+
+    
+
+    
+
+    </div>
+
+
+
+</div>

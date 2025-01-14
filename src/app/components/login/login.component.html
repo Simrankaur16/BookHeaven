@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<div class="h-screen bg-red-50 md:px-12 px-2 py-8 flex items-center justify-center" id="login">
+    <div class=" bg-orange-100 rounded-lg px-8 py-5 w-full md:w-3/6 lg:w-2/6" id="border">
+        <p class="text-xl font-semibold ">Login</p>
+        <form (ngSubmit)="login()">
+        <div class="mt-4">
+            <div >
+                <label for="username">Username</label>
+                <input type="text" class="w-full mt-2 bg-orange-100 p-2 outline-none" 
+                  placeholder="username"
+                  name="username"
+                  required
+                  id="username"
+                  #username="ngModel"
+                  [(ngModel)]="userObj.username"
+                 
+                 >
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <div >
+                <label for="password">Password</label>
+                <input type="email" class="w-full mt-2 bg-orange-100 p-2 outline-none  " 
+                  placeholder="password"
+                  name="password"
+                  #password="ngModel"
+                  required
+                  [(ngModel)]="userObj.password"
+                  id="password">
+            </div>
+        </div>
+        
+
+        <div class="mt-4">
+            <button class="w-full bg-blue-600 text-white font-semibold py-2 rounded hover:to-blue-300" type="submit">Login</button>
+        </div>
+        <p class="flex mt-4 items-center justify-center font-semibold">
+            Or
+        </p>
+        <div class="flex items-center justify-center space-x-1 text-zinc-600">
+            <p class="">Don't have an account?</p>
+            <a routerLink="/sign-up" class="underline">SignUp</a>
+        </div>
+
+        </form>
+
+    </div>
+    
+</div>

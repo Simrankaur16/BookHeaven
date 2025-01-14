@@ -1,0 +1,52 @@
+
+
+<h1 class="text-red-900 px-2 text-5xl">Favourite Books</h1>
+
+<div class="my-4 grid grid-cols-1 sm:grid-col-3 px-4 md:grid-cols-4 gap-6" >
+    @for(fav of user; track $index)
+    {
+       
+      
+      <div class="bg-opacity-75 rounded p-4 flex flex-col" id="bg">
+        
+        <a routerLink="/viewBookDetails/{{fav._id}}">
+          <div class=" rounded flex items-center justify-center " id="bg2"  >
+              <img src={{fav.url}} class="h-[25vh]" >
+          </div>
+          <h2 class="mt-4 text-xl ">{{fav.title}}</h2>
+          <p class="text-zinc-600 text-sm">{{fav.author}}</p>
+          <p>Price: ${{fav.price}}</p>
+        </a>
+          <div class="flex flex-row justify-end " >
+       
+            <button class="bg-red-200 rounded-full p-2  mt-0 flex gap-0 m-2 hover:bg-slate-300" (click)="removeFav(fav._id)" >
+              
+              <img src="remove.svg" class="px-1 ">
+              
+              
+             
+            </button>
+            </div>
+        
+       
+
+      </div>
+    
+
+      
+
+      
+
+     
+   }
+  </div>
+  
+
+
+
+
+
+
+
+
+
