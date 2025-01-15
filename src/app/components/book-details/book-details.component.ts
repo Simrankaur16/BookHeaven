@@ -20,7 +20,9 @@ export class BookDetailsComponent {
  user: any = {};
  route = inject(ActivatedRoute)
  
-  apiUrl = "http://localhost:3000/api/v1/";
+  apiUrl = "https://bookheaven-ch2q.onrender.com/api/v1/";
+
+  
   ngOnInit(): void
   {
     const id = this.route.snapshot.params["id"];

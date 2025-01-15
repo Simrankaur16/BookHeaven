@@ -10,7 +10,7 @@ export class BookServiceService {
 
   constructor(private http:HttpClient, private router: Router){}
 
-  apiUrl = "http://localhost:3000/api/v1/";
+  apiUrl = "https://bookheaven-ch2q.onrender.com/api/v1/";
 
   signup(user:any):Observable<any> {
     return this.http.post(this.apiUrl + "signup", user);

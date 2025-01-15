@@ -8,6 +8,7 @@ import { BookDetailsComponent } from './components/book-details/book-details.com
 import { ProfileComponent } from './components/profile/profile.component';
 import { FavouritesComponent } from './components/profile/favourites/favourites.component';
 import { roleGuard } from './guards/role.guard';
+import { RenderMode } from '@angular/ssr';
 
 
 
@@ -87,9 +88,10 @@ export const routes: Routes = [
     {
         path: 'viewBookDetails/:id',
         title:'Book Details',
+        data: {RenderMode: 'browser'},
         loadComponent:() => import('./components/book-details/book-details.component')
         .then((c) => c.BookDetailsComponent),
-
+       
         
     },
     {

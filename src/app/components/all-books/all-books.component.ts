@@ -19,7 +19,7 @@ export class AllBooksComponent {
   constructor(private httpClient:HttpClient) {}
 
   books: any[]=[];
- apiUrl = "http://localhost:3000/api/v1/";
+ apiUrl = "https://bookheaven-ch2q.onrender.com/api/v1/";
 
  getRecentBooks(){
   this.httpClient.get(this.apiUrl+"getAllBooks").subscribe((result: any)=>{

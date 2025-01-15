@@ -7,7 +7,7 @@ import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-recent-added',
-  imports: [RouterOutlet, RouterLink, FooterComponent],
+  imports: [RouterOutlet, RouterLink],
   templateUrl: './recent-added.component.html',
   styleUrl: './recent-added.component.css'
 })
@@ -17,7 +17,7 @@ export class RecentAddedComponent {
 
 
  books: any[]=[];
- apiUrl = "http://localhost:3000/api/v1/";
+ apiUrl = "https://bookheaven-ch2q.onrender.com/api/v1/";
 
  getRecentBooks(){
   this.httpClient.get(this.apiUrl+"getRecentBooks").subscribe((result: any)=>{

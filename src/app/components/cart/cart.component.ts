@@ -23,7 +23,7 @@ export class CartComponent {
   cart: any[] = [];
 
 
-  apiUrl = "http://localhost:3000/api/v1/";
+  apiUrl = "https://bookheaven-ch2q.onrender.com/api/v1/";
 
   getCarList(){
     const authToken = localStorage.getItem('token');

@@ -35,6 +35,8 @@
             "ssr": {
               "entry": "src/server.ts"
             }
+           
+
           },
           "configurations": {
             "production": {
@@ -86,7 +88,7 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public",
+                "input": "public"
               
               }
             ],
