@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-cart',
-  imports: [NavbarComponent],
+  imports: [NavbarComponent, FooterComponent],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
@@ -90,6 +91,9 @@ export class CartComponent {
              return;
       }
 
+      
+
+      
 
       const headers = new HttpHeaders({
         'Authorization': `Bearer ${authToken}`,
@@ -101,7 +105,10 @@ export class CartComponent {
       this.httpClient.post<any>(this.apiUrl+ "/placeOrder", {order}, {headers}).subscribe((result) =>{
         console.log("done", result);
         if(result.status === "Success"){
-        alert("Order is Placed")
+          
+        alert("Order is Placed");
+        
+       
       }else{
         alert("Order placement failed: " + result.message);
       }
@@ -119,6 +126,7 @@ export class CartComponent {
       
 
     }
+
 
 
 

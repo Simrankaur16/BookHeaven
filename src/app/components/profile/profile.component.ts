@@ -5,10 +5,11 @@ import { RouterModule } from '@angular/router';
 import { routes } from '../../app.routes';
 import { BookServiceService } from '../../book-service.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-profile',
-  imports: [NavbarComponent, RouterOutlet, RouterLink, RouterLinkActive, RouterModule],
+  imports: [NavbarComponent, RouterOutlet, RouterLink, RouterLinkActive, RouterModule, FooterComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
@@ -59,6 +60,10 @@ export class ProfileComponent {
     this.bookService.logout()
 
 
+  }
+
+  hasRole(role: 'user' | 'admin'):boolean{
+    return this.bookService.hasRole(role);
   }
 
  

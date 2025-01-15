@@ -41,8 +41,14 @@ export class BookServiceService {
 
   hasRole(role:'user' | 'admin'):boolean{
     const storedRole = localStorage.getItem('role');
-
     return storedRole === role;
   }
+
+  navigateByUrl(url: string):void  
+  {
+  this.router.navigateByUrl(url, {replaceUrl: true})
+  }
+
+
 
 }

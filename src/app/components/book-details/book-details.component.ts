@@ -1,18 +1,20 @@
 import { Component,inject,OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NavbarComponent } from "../navbar/navbar.component";
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookServiceService } from '../../book-service.service';
+import { RouterLink } from '@angular/router';
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-book-details',
-  imports: [NavbarComponent],
+  imports: [NavbarComponent, RouterLink, FooterComponent],
   templateUrl: './book-details.component.html',
   styleUrl: './book-details.component.css'
 })
 export class BookDetailsComponent {
 
-  constructor(private httpClient: HttpClient, private bookService: BookServiceService){}
+  constructor(private httpClient: HttpClient, private bookService: BookServiceService, private routee: Router){}
 
  books: any= {title:''};
  user: any = {};
@@ -80,7 +82,7 @@ export class BookDetailsComponent {
 
     this.httpClient.put<any>(this.apiUrl + "/addBookFav", {}, {headers}).subscribe((result) => {
       this.books = result;
-      alert("Books Addded to Favorites")
+      alert("Books Addded to Favourites")
       console.log("Book Fave", this.books)
     })
 
@@ -114,7 +116,9 @@ export class BookDetailsComponent {
     this.httpClient.delete(this.apiUrl + "/deleteBook", {headers}).subscribe((result) => {
         this.books = result;
         alert("Books is Deleted")
+        this.routee.navigateByUrl("/all-books")
         console.log("Book deletee", this.books)
+        
       })
   
 
@@ -123,8 +127,15 @@ export class BookDetailsComponent {
 
   }
 
-  edit(id:string){
 
+
+ 
+
+
+  //has Role 
+
+  hasRole(role: 'user' | 'admin'):boolean{
+    return this.bookService.hasRole(role);
   }
 
     

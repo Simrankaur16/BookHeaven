@@ -41,7 +41,7 @@
         <div class="mt-4">
             <div >
                 <label for="password">Password</label>
-                <input type="email" class="w-full mt-2 bg-orange-100 p-2 outline-none inputd" 
+                <input type="password" class="w-full mt-2 bg-orange-100 p-2 outline-none inputd" 
                   placeholder="password"
                   name="password"
                   required
@@ -50,8 +50,8 @@
                   #password="ngModel"
                   [(ngModel)]="user.password">
                 <div class="text-sm" style="color:  rgb(247, 151, 151);" *ngIf="password.invalid && ( password.touched || password.dirty)">
-                    <span *ngIf="username.errors?.['required']">Password is Required</span>
-                    <span *ngIf="username.errors?.['minlength']">Password Should be more than 6 Characters</span>
+                    <span *ngIf="password.errors?.['required']">Password is Required</span>
+                     <span *ngIf="password.errors?.['minlength']">Password Should be more than 6 Characters</span>
                 </div>
             </div>
         </div>
@@ -86,3 +86,5 @@
 
     </div>
 </div>
+
+<app-footer></app-footer>

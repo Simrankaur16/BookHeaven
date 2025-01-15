@@ -2,11 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import {Router} from '@angular/router';
+import { FooterComponent } from "../footer/footer.component";
 
 
 @Component({
   selector: 'app-recent-added',
-  imports: [RouterOutlet, RouterLink],
+  imports: [RouterOutlet, RouterLink, FooterComponent],
   templateUrl: './recent-added.component.html',
   styleUrl: './recent-added.component.css'
 })

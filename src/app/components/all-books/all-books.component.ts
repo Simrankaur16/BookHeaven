@@ -3,13 +3,14 @@ import { NavbarComponent } from "../navbar/navbar.component";
 import { HttpClient } from '@angular/common/http';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import {Router} from '@angular/router';
+import { FooterComponent } from "../footer/footer.component";
 
 
 
 
 @Component({
   selector: 'app-all-books',
-  imports: [NavbarComponent, RouterOutlet, RouterLink],
+  imports: [NavbarComponent, RouterOutlet, RouterLink, FooterComponent],
   templateUrl: './all-books.component.html',
   styleUrl: './all-books.component.css'
 })

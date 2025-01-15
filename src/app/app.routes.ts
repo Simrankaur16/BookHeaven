@@ -6,8 +6,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { CartComponent } from './components/cart/cart.component';
 import { BookDetailsComponent } from './components/book-details/book-details.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { OrderHistoryComponent } from './components/profile/order-history/order-history.component';
 import { FavouritesComponent } from './components/profile/favourites/favourites.component';
+import { roleGuard } from './guards/role.guard';
 
 
 
@@ -44,9 +44,11 @@ export const routes: Routes = [
  
    {
     path: 'profile',
+   
   
     loadComponent:()=> import('./components/profile/profile.component')
     .then((c)=> c.ProfileComponent),
+    
     
     children:
     [
@@ -62,13 +64,15 @@ export const routes: Routes = [
           
           loadComponent: () => import('./components/profile/favourites/favourites.component')
           .then((c)=> c.FavouritesComponent),
+          
         },
         {
-    
-            path:'orderHistory', 
-            
-           loadComponent: () => import('./components/profile/order-history/order-history.component')
-           .then((c) => c.OrderHistoryComponent),
+            path:'addBook',
+            canActivateChild:[roleGuard],
+           
+            loadComponent: () => import('./components/profile/add-book/add-book.component')
+            .then((c) => c.AddBookComponent),
+            data:{role:['admin']},
         }
 
      ]
@@ -84,7 +88,19 @@ export const routes: Routes = [
         path: 'viewBookDetails/:id',
         title:'Book Details',
         loadComponent:() => import('./components/book-details/book-details.component')
-        .then((c) => c.BookDetailsComponent)
-        }
+        .then((c) => c.BookDetailsComponent),
+
+        
+    },
+    {
+            
+        path: 'edit-book/:id',
+        title: 'Edit Book',
+        loadComponent:() => import('./components/edit-book/edit-book.component')
+        .then((c)=>c.EditBookComponent),
+       
+    
+   }
+   
     
 ];

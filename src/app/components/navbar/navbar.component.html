@@ -28,9 +28,13 @@
           @if(isLoggedIn()){
 
           <li><a routerLink="/profile">Profile</a></li>
+          }
+          
+          @if( isLoggedIn() && hasRole('user')) {
           <li><a routerLink="/cart">
             Cart
           </a></li>
+           
           }
 
           @if(!isLoggedIn()){
@@ -65,7 +69,9 @@
         </li>
        @if (isLoggedIn()) {
         <li><a routerLink="/profile">Profile</a></li>
+        @if(hasRole('user')){
         <li><a routerLink="/cart">Cart</a></li>
+        }
         
        }
       

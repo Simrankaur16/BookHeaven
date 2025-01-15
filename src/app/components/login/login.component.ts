@@ -5,10 +5,11 @@ import { FormsModule } from '@angular/forms';
 import { BookServiceService } from '../../book-service.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router' ;
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-login',
-  imports: [NavbarComponent,RouterLink, FormsModule, CommonModule],
+  imports: [NavbarComponent, RouterLink, FormsModule, CommonModule, FooterComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

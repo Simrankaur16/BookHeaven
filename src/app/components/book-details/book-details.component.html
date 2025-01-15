@@ -7,7 +7,9 @@
 
        
        @if(isLoggedIn()){
+        
         <div class="flex flex-row " >
+        @if(hasRole('user')){
         <button class="bg-red-200 rounded-full p-2 mt-0 flex gap-0 m-2 hover:bg-slate-300" (click)="addToCart(books.data._id)">
           
           <img src="cart.svg" class="px-1 ">
@@ -15,24 +17,28 @@
           
          
         </button>
+      }
           <button class="bg-red-200 rounded-full p-2 mt-0 flex gap-0 m-2 hover:bg-slate-300" (click)="addToFav(books.data._id)">
           
           <img src="fav.svg" class="px-1 ">
           </button>
+        
 
         
+        @if(hasRole('admin')){
         
         <button class="bg-red-200 rounded-full p-2 mt-0 flex gap-0 m-2 hover:bg-slate-300" (click)="remove(books.data._id)">
           
-          <img src="cart.svg" class="px-1 ">
+          <img src="delete.svg" class="px-1 ">
           
           
          
         </button>
-        <button class="bg-red-200 rounded-full p-2 mt-0 flex gap-0 m-2 hover:bg-slate-300" (click)="edit(books.data._id)">
+        <a class="bg-red-200 rounded-full p-2 mt-0 flex gap-0 m-2 hover:bg-slate-300" routerLink="/edit-book/{{books.data._id}}">
           
-          <img src="fav.svg" class="px-1 ">
-        </button>
+          <img src="edit.svg" class="px-1 ">
+        </a>
+         } 
         
 
         </div>
@@ -54,3 +60,5 @@
 
 
 </div>
+
+<app-footer></app-footer>

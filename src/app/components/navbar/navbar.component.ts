@@ -23,6 +23,10 @@ export class NavbarComponent {
     return this.bookService.hasToken()
   }
 
+  hasRole(role: 'user' | 'admin'):boolean{
+    return this.bookService.hasRole(role);
+  }
+
 
               
 }
